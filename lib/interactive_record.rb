@@ -54,13 +54,13 @@ class InteractiveRecord
     DB[:conn].execute(sql, name)
   end
   
-      def self.find_by(option)
-        property = option.flatten[0].to_s
-        values = option.flatten[1]
+  def self.find_by(option)
+    property = option.flatten[0].to_s
+    values = option.flatten[1]
 
-        sql = <<-SQL
-        SELECT * FROM #{self.table_name} WHERE #{property} = ?
-        SQL
-        DB[:conn].execute(sql, values)
-    end
+    sql = <<-SQL
+      SELECT * FROM #{self.table_name} WHERE #{property} = ?
+    SQL
+    DB[:conn].execute(sql, values)
+  end
 end
